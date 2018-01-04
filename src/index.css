@@ -47,6 +47,11 @@ html, body {
   font-size: 12px;
 }
 
+.line {
+  width: 100px;
+  border-top: 1px solid #7AB55C;
+}
+
 .flex {
   display:flex;
 }

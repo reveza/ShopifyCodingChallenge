@@ -21,7 +21,8 @@ class Header extends Component {
                   () => { this.validateField(name, value) });
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.showFormValues();
   }
 
@@ -64,11 +65,12 @@ class Header extends Component {
               <div className="title font-weight-bold text-left row">
                 {title2}
               </div>
+              <hr className="line"></hr>
         </div>
         <form className="pt-5 mt-1" onSubmit={this.handleSubmit}>
           <div className={`form-group container ${this.errorClass(this.state.formErrors.email)}`}>
             <div className="text-left row">
-            <label htmlFor="exampleInputEmail1" className="field">Subscribe for free marketing tips</label>
+              <label htmlFor="exampleInputEmail1" className="field">Subscribe for free marketing tips</label>
             </div>
             <div className="flex mt-3 row">
               <input
