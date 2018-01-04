@@ -6,10 +6,12 @@ class Header extends Component {
   super(props);
   this.state = {
     email: '',
+    interest: '',
     formErrors: {email: ''},
     emailValid: false,
     formValid: false
     }
+  this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleUserInput (e) {
@@ -17,6 +19,14 @@ class Header extends Component {
     const value = e.target.value;
     this.setState({[name]: value},
                   () => { this.validateField(name, value) });
+  }
+
+  handleSubmit() {
+    this.showFormValues();
+  }
+
+  showFormValues() {
+    console.log(`email: ${this.state.email} interest: ${this.state.interest}`);
   }
 
   validateField(fieldName, value) {
@@ -55,7 +65,7 @@ class Header extends Component {
                 {title2}
               </div>
         </div>
-        <form className="pt-5 mt-1">
+        <form className="pt-5 mt-1" onSubmit={this.handleSubmit}>
           <div className={`form-group container ${this.errorClass(this.state.formErrors.email)}`}>
             <div className="text-left row">
             <label htmlFor="exampleInputEmail1" className="field">Subscribe for free marketing tips</label>
@@ -65,13 +75,19 @@ class Header extends Component {
               type="email"
               name="email"
               className="form-control col-md-8 col-xs-12"
-              id="exampleInputEmail1"
+              id="inputEmail"
               aria-describedby="emailHelp"
               placeholder="Email Address"
               value={this.state.email}
               onChange={this.handleUserInput.bind(this)}
               />
-              <select className="form-control col-md-4 col-xs-12" id="exampleSelect1">
+              <select
+              className="form-control col-md-4 col-xs-12"
+              id="select"
+              type="interest"
+              name="interest"
+              onChange={this.handleUserInput.bind(this)}
+              >
                 <option selected>Interested in</option>
                 <option>Online store</option>
                 <option>Retail package</option>
@@ -83,7 +99,13 @@ class Header extends Component {
             <FormErrors formErrors={this.state.formErrors} />
             </div>
             <div className="flex mt-3 row">
-            <button type="submit" className="btn btn-purple flex-grow" disabled={!this.state.formValid}>Sign up now</button>
+            <button
+            type="submit"
+            className="btn btn-purple flex-grow"
+            disabled={!this.state.formValid}
+            >
+            Sign up now
+            </button>
             </div>
           </div>
         </form>

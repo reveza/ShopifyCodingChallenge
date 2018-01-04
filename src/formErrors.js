@@ -5,7 +5,7 @@ export const FormErrors = ({formErrors}) =>
     {Object.keys(formErrors).map((fieldName, i) => {
       if(formErrors[fieldName].length > 0){
         return (
-          <small id="emailHelp" className="form-text invalid" key={i}>Please enter a valid email address</small>
+          <small id="emailHelp" className="form-text msg-error" key={i}>Please enter a valid email address</small>
         )
       } else {
         return '';
