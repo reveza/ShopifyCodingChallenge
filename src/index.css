@@ -1,0 +1,68 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Helvetica,Arial,sans-serif;
+  background-color: #000639;
+  overflow-x:hidden;
+  color: #FFFFFF;
+  @font-face {
+      font-family: sans-serif;
+      src: url("./fonts/HELR45W.ttf") format("ttf");
+    }
+}
+
+.title {
+  display: flex;
+  font-size: 24px;
+  flex-direction: column;
+}
+
+.field {
+  display: flex;
+  font-size: 16px;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-grow {
+  flex-grow: 2;
+}
+
+.App {
+  text-align: center;
+  background-color: #000639;
+  height: 100vh;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+}
+
+.line {
+  color: green;
+}
+
+.invalid {
+  color: #C23628;
+}
+
+.flex {
+  display:flex;
+}
+
+.flex-shrink {
+  flex-shrink: 1.5;
+}
+
+.btn-purple {
+  background-color: #5c6ac4;
+  color: #FFFFFF;
+}
+
+.link {
+  color: #FFFFFF;
+  text-decoration: underline;
+  font-size: 12px;
+}
