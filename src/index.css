@@ -6,10 +6,6 @@ html, body {
   background-color: #000639;
   overflow-x:hidden;
   color: #FFFFFF;
-  @font-face {
-      font-family: sans-serif;
-      src: url("./fonts/HELR45W.ttf") format("ttf");
-    }
 }
 
 .App {
