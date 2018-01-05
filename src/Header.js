@@ -10,7 +10,7 @@ class Header extends Component {
     formErrors: {email: ''},
     emailValid: false,
     formValid: false
-    }
+  }
   this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -31,43 +31,41 @@ class Header extends Component {
   }
 
   validateField(fieldName, value) {
-   let fieldValidationErrors = this.state.formErrors;
-   let emailValid = this.state.emailValid;
+    let fieldValidationErrors = this.state.formErrors;
+    let emailValid = this.state.emailValid;
 
-   switch(fieldName) {
-     case 'email':
-       emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-       fieldValidationErrors.email = emailValid ? '' : ' is invalid';
-       break;
-     default:
-       break;
-   }
-   this.setState({formErrors: fieldValidationErrors,
-                    emailValid: emailValid
-                  }, this.validateForm);
+    switch(fieldName) {
+      case 'email':
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+        break;
+      default:
+        break;
+    }
+    this.setState({formErrors: fieldValidationErrors,
+                      emailValid: emailValid
+                    }, this.validateForm);
   }
 
   validateForm() {
-     this.setState({formValid: this.state.emailValid});
-   }
+    this.setState({formValid: this.state.emailValid});
+  }
 
-   errorClass(error) {
+  errorClass(error) {
     return(error.length === 0 ? '' : 'has-error');
   }
 
   render() {
-    var title1 = "Stay up to date with ecommerce trends";
-    var title2 = "with our newsletter";
+    const title1 = "Stay up to date with ecommerce trends";
+    const title2 = "with our newsletter";
     return(
       <div className="p-5 m-3 flex-start">
         <div className="container">
               <div className="title font-weight-bold text-left row">{title1}</div>
-              <div className="title font-weight-bold text-left row">
-                {title2}
-              </div>
-              <hr className="line"></hr>
+              <div className="title font-weight-bold text-left row">{title2}</div>
+              <hr className="row line" align="left"></hr>
         </div>
-        <form className="pt-5 mt-1" onSubmit={this.handleSubmit}>
+        <form className="pt-5" onSubmit={this.handleSubmit}>
           <div className={`form-group container ${this.errorClass(this.state.formErrors.email)}`}>
             <div className="text-left row">
               <label htmlFor="exampleInputEmail1" className="field">Subscribe for free marketing tips</label>
@@ -98,16 +96,16 @@ class Header extends Component {
               </select>
             </div>
             <div className="flex row">
-            <FormErrors formErrors={this.state.formErrors} />
+              <FormErrors formErrors={this.state.formErrors} />
             </div>
             <div className="flex mt-3 row">
-            <button
-            type="submit"
-            className="btn btn-purple flex-grow"
-            disabled={!this.state.formValid}
-            >
-            Sign up now
-            </button>
+              <button
+              type="submit"
+              className="btn btn-purple flex-grow"
+              disabled={!this.state.formValid}
+              >
+              Sign up now
+              </button>
             </div>
           </div>
         </form>
